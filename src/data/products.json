@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "조 말론 런던 잉글리쉬 페어 앤 프리지아",
+    "price": 235000,
+    "volume": "100ml",
+    "description": "화사하게 만개한 프리지아 부케에 이제 막 익은 배의 신선함을 입히고, 호박, 파촐리, 우디 향으로 은은함을 더했습니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+1"
+  },
+  {
+    "id": 2,
+    "name": "바이레도 블랑쉬",
+    "price": 260000,
+    "volume": "50ml",
+    "description": "깨끗하고 순수한 시트러스 향과 플로럴 향이 어우러져 맑고 투명한 느낌을 주는 향수입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+2"
+  },
+  {
+    "id": 3,
+    "name": "크리드 어벤투스",
+    "price": 448000,
+    "volume": "100ml",
+    "description": "강인함, 성공, 유산을 상징하는 남성을 위한 향수. 파인애플, 베르가못의 상큼함과 머스크, 오크모스의 깊이감이 조화를 이룹니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+3"
+  },
+  {
+    "id": 4,
+    "name": "딥티크 도 손",
+    "price": 210000,
+    "volume": "75ml",
+    "description": "수선화와 오렌지 블로썸의 상쾌하고 플로럴한 향이 특징이며, 바닷바람의 시원함을 담은 향수입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+4"
+  },
+  {
+    "id": 5,
+    "name": "샤넬 N°5",
+    "price": 268000,
+    "volume": "100ml",
+    "description": "시대를 초월한 전설적인 여성 향수. 플로랄 알데하이드 계열의 풍성하고 여성스러운 향이 특징입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+5"
+  },
+  {
+    "id": 6,
+    "name": "톰 포드 오드 우드",
+    "price": 389000,
+    "volume": "50ml",
+    "description": "희귀하고 이국적인 오드 우드 향을 중심으로 스파이시하고 스모키한 노트가 어우러져 신비롭고 강렬한 인상을 줍니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+6"
+  },
+  {
+    "id": 7,
+    "name": "산타 마리아 노벨라 프리지아",
+    "price": 185000,
+    "volume": "100ml",
+    "description": "깨끗한 비누향과 순수한 프리지아 향이 만나 갓 샤워하고 나온 듯한 느낌을 주는 향수입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+7"
+  },
+  {
+    "id": 8,
+    "name": "르 라보 상탈 33",
+    "price": 410000,
+    "volume": "100ml",
+    "description": "스모키한 우드향과 스파이시한 가죽향이 만나 중성적이고 매력적인 분위기를 자아냅니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+8"
+  },
+  {
+    "id": 9,
+    "name": "입생로랑 리브르",
+    "price": 229000,
+    "volume": "90ml",
+    "description": "자유롭고 대담한 여성을 위한 향수. 라벤더와 오렌지 블로썸의 관능적인 조화가 특징입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+9"
+  },
+  {
+    "id": 10,
+    "name": "아쿠아 디 파르마 미르토 디 파나레아",
+    "price": 215000,
+    "volume": "75ml",
+    "description": "지중해의 상쾌함을 담은 시트러스 아로마틱 향수. 바질과 레몬의 활기찬 향으로 시작됩니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+10"
+  },
+  {
+    "id": 11,
+    "name": "메종 마르지엘라 레이지 선데이 모닝",
+    "price": 178000,
+    "volume": "100ml",
+    "description": "깨끗한 코튼 시트와 햇살의 포근함을 담은 플로럴 머스크 향. 주말 아침의 여유로움을 선사합니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+11"
+  },
+  {
+    "id": 12,
+    "name": "구찌 블룸",
+    "price": 201000,
+    "volume": "100ml",
+    "description": "다채로운 꽃들이 만발한 정원을 거니는 듯한 풍성한 플로럴 향. 튜베로즈와 자스민의 조화가 돋보입니다.",
+    "image": "https://placehold.co/600x600/EFEFEF/333333?text=Product+12"
+  }
+]
