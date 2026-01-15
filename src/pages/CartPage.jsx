@@ -3,7 +3,8 @@
 import { useState } from 'react'; // useState를 import 합니다.
 import { useCart } from '../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { ListGroup, Button, Row, Col, Image, Card, Modal } from 'react-bootstrap'; // Modal을 import 합니다.
+import { ListGroup, Button, Row, Col, Image, Card, Modal, Toast, ToastContainer } from 'react-bootstrap';
+import { formatPrice, sanitizeInput } from '../utils/validation';
 
 function CartPage() {
   const { cartItems, incrementQuantity, decrementQuantity, removeFromCart, clearCart } = useCart();
@@ -12,13 +13,23 @@ function CartPage() {
   // 모달 표시 여부를 관리하는 state
   const [showModal, setShowModal] = useState(false);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVariant, setToastVariant] = useState('success');
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  // Toast 알림 표시 함수
+  const showNotification = (message, variant = 'success') => {
+    setToastMessage(message);
+    setToastVariant(variant);
+    setShowToast(true);
+  };
 
   // 결제하기 버튼 클릭 시 모달 열기
   const handleCheckoutClick = () => {
     if (cartItems.length === 0) {
-      alert('장바구니가 비어있습니다.');
+      showNotification('장바구니가 비어있습니다.', 'warning');
       return;
     }
     setShowModal(true);
@@ -30,13 +41,14 @@ function CartPage() {
     setSelectedPaymentMethod(''); // 선택된 결제 수단 초기화
   };
 
-  // 결제 확정 처리
+  // 결제 확정 처리 (보안: 입력값 검증)
   const handlePaymentConfirm = (method) => {
-    setSelectedPaymentMethod(method);
-    alert(`총 ${totalPrice.toLocaleString()}원 ${method}로 결제가 완료되었습니다. 감사합니다!`);
+    const sanitizedMethod = sanitizeInput(method);
+    setSelectedPaymentMethod(sanitizedMethod);
+    showNotification(`총 ${formatPrice(totalPrice)}원 ${sanitizedMethod}로 결제가 완료되었습니다. 감사합니다!`);
     clearCart(); // 장바구니 비우기
     setShowModal(false); // 모달 닫기
-    navigate('/'); // 결제 후 홈으로 이동
+    setTimeout(() => navigate('/'), 1500); // Toast 표시 후 홈으로 이동
   };
 
   return (
@@ -64,7 +76,7 @@ function CartPage() {
                     <Col md={3}>
                       <Link to={`/product/${item.id}`}>{item.name}</Link>
                     </Col>
-                    <Col md={2}>{item.price.toLocaleString()}원</Col>
+                    <Col md={2}>{formatPrice(item.price)}원</Col>
                     <Col md={3} className="d-flex align-items-center">
                       <Button size="sm" variant="outline-secondary" onClick={() => decrementQuantity(item.id)}>-</Button>
                       <span className="mx-2">{item.quantity}</span>
@@ -93,7 +105,7 @@ function CartPage() {
                   <ListGroup.Item>
                     <Row>
                       <Col><strong>총 주문 금액:</strong></Col>
-                      <Col className="text-end"><strong>{totalPrice.toLocaleString()}원</strong></Col>
+                      <Col className="text-end"><strong>{formatPrice(totalPrice)}원</strong></Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item className="d-grid">
@@ -115,7 +127,7 @@ function CartPage() {
           <Modal.Title>결제 수단 선택</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p className="mb-3">총 결제 금액: <strong>{totalPrice.toLocaleString()}원</strong></p>
+          <p className="mb-3">총 결제 금액: <strong>{formatPrice(totalPrice)}원</strong></p>
           <div className="d-grid gap-2">
             <Button variant="outline-primary" onClick={() => handlePaymentConfirm('카드')}>카드 결제</Button>
             <Button variant="outline-primary" onClick={() => handlePaymentConfirm('무통장 입금')}>무통장 입금</Button>
@@ -129,6 +141,22 @@ function CartPage() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/* Toast 알림 */}
+      <ToastContainer position="top-end" className="p-3" style={{ zIndex: 9999 }}>
+        <Toast
+          show={showToast}
+          onClose={() => setShowToast(false)}
+          delay={3000}
+          autohide
+          bg={toastVariant}
+        >
+          <Toast.Header>
+            <strong className="me-auto">알림</strong>
+          </Toast.Header>
+          <Toast.Body className="text-white">{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 }
