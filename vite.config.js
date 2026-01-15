@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/shop/',
+  base: '/React_Perfume_Shop/',
   plugins: [react()],
   server: {
     // 개발 서버 보안 헤더 설정
